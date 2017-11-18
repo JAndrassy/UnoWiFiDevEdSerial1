@@ -1,6 +1,6 @@
 # Uno WiFi (Developer Edition) Serial1
 
-Arduino Uno WiFi is an Arduino UNO R3 with ESP8266 integrated on the board. It was developed and manufactured by Arduino.org.
+Arduino Uno WiFi is an Arduino UNO R3 with ESP8266 integrated on the board. It was developed and manufactured by Arduino.org. More information in [Uno WiFi Wiki](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki).
 
 Uno WiFi Developer Edition connects ATmega328 to ESP8266 using additional on board UART chip SC16IS750 ([here as module](http://sandboxelectronics.com/?product=sc16is750-i2cspi-to-uart-bridge-module)). This additional UART is connected to ATmega as I2C device.
 
@@ -77,6 +77,8 @@ To make Uno WiFi ready for WiFi Link flashing:
 3. Upload the EspProxy sketch into UnoWiFi. (No need to save it.)
 
 EspProxy will reset the ESP8266 into bootloader mode always when the Atmega is reset with DTR signal from IDE.
+
+To build the WiFi Link for the Uno WiFi [install esp8266 support in IDE](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki/Programming-ESP8266).
 
 Repository and 
 instructions for generic board/module with ESP8266 are [here](https://github.com/jandrassy/arduino-firmware-wifilink).
