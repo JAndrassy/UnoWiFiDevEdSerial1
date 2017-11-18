@@ -78,7 +78,8 @@ To make Uno WiFi ready for WiFi Link flashing:
 
 EspProxy will reset the ESP8266 into bootloader mode always when the Atmega is reset with DTR signal from IDE.
 
-Instructions for generic board/module with ESP8266 are [here](https://github.com/jandrassy/arduino-firmware-wifilink/blob/ota/README.md).
+Repository and 
+instructions for generic board/module with ESP8266 are [here](https://github.com/jandrassy/arduino-firmware-wifilink).
 
 The version of WiFi Link library modified for use with any serial implementation is [here](https://github.com/jandrassy/arduino-library-wifilink).
 
