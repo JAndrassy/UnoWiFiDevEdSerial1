@@ -71,7 +71,16 @@ WiFiEsp library has timeout issues. One of them causes buffer overflow with Uno 
 
 WiFi Link firmware is an Arduino esp8266 core sketch. It can by installed by Uploading the source code from IDE, with EspProxy sketch in ATmega. For the Uno WiFi with Serial1 the baud rate in config.h must be changed to baud rate used with Serial1.
 
-The WiFi Link library needed modification for using with Serial1. The version modified for use with any serial implementation is [here](https://github.com/jandrassy/arduino-library-wifilink).
+To make Uno WiFi ready for WiFi Link flashing:
+1. Open in IDE the EspProxy.ino from UnoWiFiDevEdSerial1 examples tools subfolder.
+2. Uncomment the #define FLASHING line (remove the // at the beginning of the line) 
+3. Upload the EspProxy sketch into UnoWiFi. (No need to save it.)
+
+EspProxy will reset the ESP8266 into bootloader mode always when the Atmega is reset with DTR signal from IDE.
+
+Instructions for generic board/module with ESP8266 are [here](https://github.com/jandrassy/arduino-firmware-wifilink/blob/ota/README.md).
+
+The version of WiFi Link library modified for use with any serial implementation is [here](https://github.com/jandrassy/arduino-library-wifilink).
 
 The example for Uno WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 library.
 
@@ -85,7 +94,7 @@ Serial1 objects has overflow() function which checks the overflow flag of SC16IS
 
 ## I2C a.k.a. Wire a.k.a. TWI
 
-Serial1 is an I2C device. Like other devices libraries, it calls twi_init in Serial1.begin() function. With baud rates over 57600 Serial1 sets the I2C 'full speed' (400 kHz). Call Serial1.begin() after initializing other I2C devices.
+Serial1 is an I2C device with address 0x48. Like other devices libraries, it calls twi_init in Serial1.begin() function. With baud rates over 57600, Serial1 sets the I2C 'full speed' (400 kHz). Call Serial1.begin() after initializing other I2C devices.
 
 Serial1 can handle 230400 baud at I2C 'full speed', but only 57600 at I2C 'standard mode' (100 kHz).
 
