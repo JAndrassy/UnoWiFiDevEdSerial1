@@ -2,7 +2,7 @@
 
 Arduino Uno WiFi is an Arduino UNO R3 with ESP8266 integrated on the board. It was developed and manufactured by Arduino.org. More information in [Uno WiFi Wiki](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki).
 
-Uno WiFi Developer Edition connects ATmega328 to ESP8266 using additional on board UART chip SC16IS750 ([here as module](http://sandboxelectronics.com/?product=sc16is750-i2cspi-to-uart-bridge-module)). This additional UART is connected to ATmega as I2C device.
+Uno WiFi Developer Edition connects ATmega328 to ESP8266 using additional on board UART chip SC16IS750. This additional UART is connected to ATmega as I2C device.
 
 This library creates a Serial1 object with SC16IS750 on Arduino Uno WiFi Developer Edition. This Serial1 enables to communicate with the on-board ESP8266 over it's serial interface. The included tool EspProxy enables accessing the on-board ESP8266 over USB for 'flashing' tools, IDE sketch upload or Serial Monitor.
 
@@ -41,13 +41,13 @@ Use the Start button to execute.
 
 Note: In field DETECTED INFO the detected frequency will be half of the real frequency. That is why the SpiAutoSet must not be checked.
 
-### Cheking the firmware
+### Checking the firmware
 
 1. Return to EspProxy.ino sketch in the IDE
 2. Comment the #define FLASHING line (make Undo or put // at the beginning of the line) 
 3. Upload the EspProxy sketch into UnoWiFi.
 
-Open the Serial Monitor. EspProxy sketch resets the Esp and you will see the boot log at 115200 baud. The strange characters sequence is normal.
+Open the Serial Monitor. EspProxy sketch resets the ESP and you will see the boot log at 115200 baud. The strange characters sequence is normal.
 
 Set the CR/LF setting and send test command 'AT'. The ESP should replay with OK.
 
@@ -58,6 +58,7 @@ Next commands:
 * AT+CWJAP="ssid","pass" connects to AP
 * AT+CIUPDATE updates the firmware to the latest version
 * AT+GMR - prints the version
+* AT+UART_DEF=115200,8,1,0,0 - setting of the default baud rate
 
 ### Example sketch with WiFiEsp library
 
@@ -65,11 +66,11 @@ Install the [WiFiEsp library](https://github.com/bportaluri/WiFiEsp).
 
 Open the WiFiEspWebClient example. Change the WiFi credentials and upload the sketch.
 
-WiFiEsp library has timeout issues. One of them causes buffer overflow with Uno WiFi Serial1. Instructions are in the sketch.
+WiFiEsp library has timeout issues. One of them causes buffer overflow with Uno WiFi Serial1. Instructions are in the example sketch.
 
 ## Uno WiFi with WiFi Link firmware
 
-WiFi Link firmware is an Arduino esp8266 core sketch. It can by installed by Uploading the source code from IDE, with EspProxy sketch in ATmega. For the Uno WiFi with Serial1 the baud rate in config.h must be changed to baud rate used with Serial1.
+WiFi Link firmware is an Arduino esp8266 core sketch. It can by installed by Uploading from source code in IDE, with EspProxy sketch in ATmega.
 
 To make Uno WiFi ready for WiFi Link flashing:
 1. Open in IDE the EspProxy.ino from UnoWiFiDevEdSerial1 examples tools subfolder.
@@ -85,7 +86,7 @@ instructions for generic board/module with ESP8266 are [here](https://github.com
 
 The version of WiFi Link library modified for use with any serial implementation is [here](https://github.com/jandrassy/arduino-library-wifilink).
 
-The example for Uno WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 library.
+An example for Uno WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 library.
 
 ## Serial1 overflow
 
