@@ -18,8 +18,8 @@ UnoWiFiDevEdSerial1	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-overflow  KEYWORD2
-resetESP  KEYWORD2
+overflow	KEYWORD2
+resetESP	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
