@@ -6,9 +6,7 @@ Uno WiFi Developer Edition connects ATmega328 to ESP8266 using additional on boa
 
 This library creates a Serial1 object with SC16IS750 on Arduino Uno WiFi Developer Edition. This Serial1 enables to communicate with the on-board ESP8266 over it's serial interface. The included tool EspProxy enables accessing the on-board ESP8266 over USB for 'flashing' tools, IDE sketch upload or Serial Monitor.
 
-## Install this library
-
-Download the contents of this GitHub repository as ZIP using the green 'Clone or download' button. Extract the ZIP and copy the folder UnoWiFiDevEdSerial1-master into your Arduino libraries folder (a subfolder in the folder where sketches are saved by IDE). Rename the folder to UnoWiFiDevEdSerial1 (delete -master). Reopen the IDE.
+The release version of the library is available in Library Manager in IDE.
 
 ## Uno WiFi with Espressif AT firmware
 
