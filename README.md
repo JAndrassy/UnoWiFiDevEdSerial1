@@ -12,7 +12,7 @@ The release version of the library is available in Library Manager in IDE.
 
 ### Prepare
 
-Download the AT firmware from [Espressif download page](http://espressif.com/en/support/download/at?keys=&field_type_tid%5B%5D=14) and unzip it. Replace the esp_init_data_default.bin with [this one](doc/esp_init_data_UnoWiFi.bin). It has the 40MHz crystal setting. 
+Download the AT firmware from [Espressif download page](http://espressif.com/en/support/download/at?keys=&field_type_tid%5B%5D=14) and unzip it. Replace the esp_init_data_default.bin with [this one](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki/files/esp_init_data_UnoWiFi.bin). It has the 40MHz crystal setting. 
 
 1. Open in IDE the EspProxy.ino from UnoWiFiDevEdSerial1 examples tools subfolder.
 2. Uncomment the #define FLASHING line (remove the // at the beginning of the line) 
@@ -88,7 +88,7 @@ An example for Uno WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 l
 
 ## Serial1 overflow
 
-Creators of the Uno WiFi did not connect the interrupt pin of the SC16IS750. It is not possible to start receiving from SC16IS750 into Serial1 buffer on interrupt. SC16IS750 has 64 byte RX buffer. If this receive buffer is full SC16IS750 sets the overflow flag and more bytes are not received. The sketch or library then stops waiting for declared count of bytes.
+Creators of the Uno WiFi did not connect the interrupt pin of the SC16IS750. It is not possible to start receiving from SC16IS750 into Serial1 buffer on interrupt. SC16IS750 has 64 byte RX buffer. If this receive buffer is full SC16IS750 sets the overflow flag and more bytes are not received. The sketch or library then stops while waiting for declared count of bytes.
 
 After requesting data from ESP, it is necessary to check for incoming data without delays. It takes time before a http response arrives, but then the data come fast. 
 
