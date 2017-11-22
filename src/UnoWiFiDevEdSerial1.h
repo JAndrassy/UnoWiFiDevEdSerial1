@@ -36,6 +36,7 @@ public:
   size_t write(uint8_t val);
   int availableForWrite(void);
   void flush();
+  using Print::write; // pull in write(str) and write(buf, size) from Print
 
   // special functions
   boolean overflow(); // check SC16IS750 rx overflow flag
