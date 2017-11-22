@@ -43,12 +43,11 @@ void detectFlashing() {
   } else {
     syncFrameIndex++;
     if (syncFrameIndex == sizeof(syncFrame)) {
+      Serial1.end();
       Serial1.resetESP(true); // reset to bootloader
       digitalWrite(LED_BUILTIN, HIGH);
-      Serial1.end();
       Serial1.begin(BAUD * 2); //double speed is necessary, but it disturbs frequency test of the 'download tool'
-      Serial1.write(syncFrame, sizeof(syncFrame) - 1);
-      digitalWrite(LED_BUILTIN, HIGH);
+      Serial1.write(syncFrame, sizeof(syncFrame) - 1); // last byte was not read, only peek
     }
   }
 }
