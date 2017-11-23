@@ -88,7 +88,7 @@ An example for UNO WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 l
 
 ## Serial1 overflow
 
-Creators of the UNO WiFi did not connect the interrupt pin of the SC16IS750. It is not possible to start receiving from SC16IS750 into Serial1 buffer on interrupt. SC16IS750 has 64 byte RX buffer. If this receive buffer is full SC16IS750 sets the overflow flag and more bytes are not received. The sketch or library then stops waiting for declared count of bytes.
+Creators of the UNO WiFi did not connect the interrupt pin of the SC16IS750. It is not possible to start receiving from SC16IS750 into Serial1 buffer on interrupt. SC16IS750 has 64 byte RX buffer. If this receive buffer is full SC16IS750 sets the overflow flag and more bytes are not received. The sketch or library then stops while waiting for declared count of bytes.
 
 After requesting data from ESP, it is necessary to check for incoming data without delays. It takes time before a http response arrives, but then the data come fast. 
 
