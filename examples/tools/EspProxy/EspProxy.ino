@@ -43,6 +43,7 @@ void detectFlashing() {
   } else {
     syncFrameIndex++;
     if (syncFrameIndex == sizeof(syncFrame)) {
+      detectSyncFrame = false;
       Serial1.end();
       Serial1.resetESP(true); // reset to bootloader
       digitalWrite(LED_BUILTIN, HIGH);
