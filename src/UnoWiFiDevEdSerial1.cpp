@@ -175,9 +175,9 @@ void UnoWiFiDevEdSerial1::resetESP(boolean toBootloader) {
     digitalWrite(ESP_GPIO0_PIN, LOW);
     pinMode(ESP_CH_EN_PIN, OUTPUT);
     digitalWrite(ESP_CH_EN_PIN, LOW);
-    delay(10);
+    delay(5);
     pinMode(ESP_CH_EN_PIN, INPUT); // let it to pull-up resistor
-    delay(100);
+    delay(50);
     pinMode(ESP_GPIO0_PIN, INPUT); // let it to pull-up resistor
   } else {
     pinMode(ESP_OFF_PIN, OUTPUT);
