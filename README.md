@@ -8,6 +8,8 @@ This library creates a Serial1 object with SC16IS750 on Arduino UNO WiFi Develop
 
 The release version of the library is available in Library Manager in IDE.
 
+Use for [UNO WiFi with Espressif AT firmware](#uno-wifi-with-espressif-at-firmware) or [UNO WiFi with WiFi Link firmware](#uno-wifi-with-wifi-link-firmware).
+
 ## UNO WiFi with Espressif AT firmware
 
 ### Prepare
