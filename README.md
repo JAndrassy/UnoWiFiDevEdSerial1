@@ -8,7 +8,10 @@ This library creates a Serial1 object with SC16IS750 on Arduino UNO WiFi Develop
 
 The release version of the library is available in Library Manager in IDE.
 
-Use for [UNO WiFi with Espressif AT firmware](#uno-wifi-with-espressif-at-firmware) or [UNO WiFi with WiFi Link firmware](#uno-wifi-with-wifi-link-firmware).
+Use for:
+* [UNO WiFi with Espressif AT firmware](#uno-wifi-with-espressif-at-firmware)
+* [UNO WiFi with WiFi Link firmware](#uno-wifi-with-wifi-link-firmware)
+* [write sketches for ESP8266 with Firmata in ATmega](#writing-sketches-for-esp8266).
 
 ## UNO WiFi with Espressif AT firmware
 
@@ -72,12 +75,7 @@ WiFiEsp library has timeout issues. One of them causes buffer overflow with UNO 
 
 WiFi Link firmware is an Arduino esp8266 core sketch. It can by installed by Uploading from source code in IDE, with EspProxy sketch in ATmega.
 
-To make UNO WiFi ready for WiFi Link flashing:
-1. Open in IDE the EspProxy.ino from UnoWiFiDevEdSerial1 examples tools subfolder.
-2. Uncomment the #define FLASHING line (remove the // at the beginning of the line) 
-3. Upload the EspProxy sketch into UnoWiFi. (No need to save it.)
-
-EspProxy will reset the ESP8266 into bootloader mode always when the Atmega is reset with DTR signal from IDE.
+To make UNO WiFi ready for WiFi Link flashing, open in IDE the EspProxy.ino from UnoWiFiDevEdSerial1 examples tools subfolder and upload it into UNO WiFi. EspProxy will reset the ESP8266 into bootloader mode always when the Atmega is reset with DTR signal from IDE and esp flashing is detected.
 
 To build the WiFi Link for the UNO WiFi [install esp8266 support in IDE](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki/Programming-ESP8266).
 
@@ -87,6 +85,14 @@ instructions for generic board/module with ESP8266 are [here](https://github.com
 The version of WiFi Link library modified for use with any serial implementation is [here](https://github.com/jandrassy/arduino-library-wifilink).
 
 An example for UNO WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 library.
+
+## Writing sketches for ESP8266
+
+Firmata is a system for accessing pins and interfaces of a microcontroller (MCU) from a computer (or other MCU). Library [FirmataMaster](https://github.com/jandrassy/FirmataMaster) is for esp8266 and enables control of an attached MCU with Firmata.
+
+Example UnoWiFiFirmata shows how to modify a Firmata sketch to work with Serial1 and combine it with EspProxy features to upload sketches into esp from IDE without thinking about how is it connected and without caring about flashing mode.
+
+To build and upload sketches into esp you need [esp8266 support in IDE](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki/Programming-ESP8266) and in ATmega the EspProxy sketch or other sketch with automatic 'flashing bridge' like the UnoWiFiFirmata example. 
 
 ## Serial1 overflow
 
