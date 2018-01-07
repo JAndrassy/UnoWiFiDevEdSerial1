@@ -20,7 +20,7 @@ Use for:
 Download the AT firmware from [Espressif download page](http://espressif.com/en/support/download/at?keys=&field_type_tid%5B%5D=14) and unzip it. Replace the esp_init_data_default.bin with [this one](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki/files/esp_init_data_UnoWiFi.bin). It has the 40MHz crystal setting. 
 
 1. Open in IDE the EspProxy.ino from UnoWiFiDevEdSerial1 examples tools subfolder.
-2. Uncomment the #define FLASHING line (remove the // at the beginning of the line) 
+2. Uncomment the `#define FLASHING` line (remove the `//` at the beginning of the line) 
 3. Upload the EspProxy sketch into UnoWiFi. (No need to save it.)
 4. let the sketch open in IDE
 
@@ -47,7 +47,7 @@ Note: In field DETECTED INFO the detected frequency will be half of the real fre
 ### Checking the firmware
 
 1. Return to EspProxy.ino sketch in the IDE
-2. Comment the #define FLASHING line (make Undo or put // at the beginning of the line) 
+2. Comment the `#define FLASHING` line (make Undo or put `//` at the beginning of the line) 
 3. Upload the EspProxy sketch into UnoWiFi.
 
 Open the Serial Monitor. EspProxy sketch resets the ESP and you will see the boot log at 115200 baud. The strange characters sequence is normal.
@@ -88,7 +88,7 @@ An example for UNO WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 l
 
 ## Writing sketches for ESP8266
 
-Firmata is a system for accessing pins and interfaces of a microcontroller (MCU) from a computer (or other MCU). Library [FirmataMaster](https://github.com/jandrassy/FirmataMaster) is for esp8266 and enables control of an attached MCU with Firmata.
+Firmata is a system for accessing pins and interfaces of a microcontroller (MCU) from a computer (or other MCU). Library [FirmataMaster](https://github.com/gmag11/FirmataMaster) is for esp8266 and enables control of an attached MCU with Firmata.
 
 Example UnoWiFiFirmata shows how to modify a Firmata sketch to work with Serial1 and combine it with EspProxy features to upload sketches into esp from IDE without thinking about how is it connected and without caring about flashing mode.
 
@@ -96,7 +96,7 @@ To build and upload sketches into esp you need [esp8266 support in IDE](https://
 
 ## Serial1 overflow
 
-Creators of the UNO WiFi did not connect the interrupt pin of the SC16IS750. It is not possible to start receiving from SC16IS750 into Serial1 buffer on interrupt. SC16IS750 has 64 byte RX buffer. If this receive buffer is full SC16IS750 sets the overflow flag and more bytes are not received. The sketch or library then stops while waiting for declared count of bytes.
+Creators of the UNO WiFi did not connect the interrupt pin of the SC16IS750. It is not possible to start receiving from SC16IS750 into Serial1 buffer on interrupt. SC16IS750 has 64 byte RX buffer. If this receive buffer is full, SC16IS750 sets the overflow flag and more bytes are not received. The sketch or library then stops while waiting for declared count of bytes.
 
 After requesting data from ESP, it is necessary to check for incoming data without delays. It takes time before a http response arrives, but then the data come fast. 
 
