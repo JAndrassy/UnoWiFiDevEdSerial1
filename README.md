@@ -86,6 +86,8 @@ The version of WiFi Link library modified for use with any serial implementation
 
 An example for UNO WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 library.
 
+For Blynk with UNO WiFi with Serial1 and WiFi Link library, see UnoWiFiBlynk example.
+
 ## Writing sketches for ESP8266
 
 Firmata is a system for accessing pins and interfaces of a microcontroller (MCU) from a computer (or other MCU). Library [FirmataMaster](https://github.com/gmag11/FirmataMaster) is for esp8266 and enables control of an attached MCU with Firmata.
