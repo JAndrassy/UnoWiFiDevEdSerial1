@@ -71,6 +71,12 @@ Open the WiFiEspWebClient example. Change the WiFi credentials and upload the sk
 
 WiFiEsp library has timeout issues. One of them causes buffer overflow with UNO WiFi Serial1. Instructions are in the example sketch.
 
+### New WiFiEspAT library
+
+With AT firmware 1.7 (SDK 3), you can use the new [WFiEspAT library](https://github.com/jandrassy/WiFiEspAT).
+
+To test it, only add `#include <UnoWiFiDevEdSerial1.h>` at the beginning of the example sketches of the WiFiEspAT library.
+
 ## UNO WiFi with WiFi Link firmware
 
 WiFi Link firmware is an Arduino esp8266 core sketch. It can by installed by Uploading from source code in IDE, with EspProxy sketch in ATmega.
