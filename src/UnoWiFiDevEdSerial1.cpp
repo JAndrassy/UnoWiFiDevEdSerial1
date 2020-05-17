@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2017 Juraj Andrï¿½ssy
+Copyright (C) 2017 Juraj Andrássy
 repository https://github.com/jandrassy
 
     This program is free software: you can redistribute it and/or modify
@@ -182,12 +182,9 @@ void UnoWiFiDevEdSerial1::resetESP(boolean toBootloader) {
   } else {
     pinMode(ESP_OFF_PIN, OUTPUT);
     digitalWrite(ESP_OFF_PIN, HIGH);
-    pinMode(ESP_CH_EN_PIN, OUTPUT); // CH_EN should be activated with delay after power-up
-    digitalWrite(ESP_CH_EN_PIN, LOW);
     delay(5);
     digitalWrite(ESP_OFF_PIN, LOW); // for sure
     delay(5);
-    pinMode(ESP_CH_EN_PIN, INPUT); // let it to pull-up resistor
     pinMode(ESP_OFF_PIN, INPUT); // let it to pull-down resistor
   }
 }
