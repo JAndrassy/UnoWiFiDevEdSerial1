@@ -15,9 +15,11 @@ Use for:
 
 ## UNO WiFi with Espressif AT firmware
 
+This is now the best option for Uno WiFi Dev Ed.
+
 ### Prepare
 
-Download the AT firmware from [Espressif download page](http://espressif.com/en/support/download/at?keys=&field_type_tid%5B%5D=14) and unzip it. Replace the esp_init_data_default.bin with [this one](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki/files/esp_init_data_UnoWiFi.bin). It has the 40MHz crystal setting. 
+Download the AT firmware from [Espressif's repository]https://github.com/espressif/ESP8266_NONOS_SDK/releases) and unzip it. Replace the esp_init_data_default.bin with [this one](https://github.com/jandrassy/UnoWiFiDevEdSerial1/wiki/files/esp_init_data_UnoWiFi.bin). It has the 40MHz crystal setting. 
 
 1. Open in IDE the EspProxy.ino from UnoWiFiDevEdSerial1 examples tools subfolder.
 2. Uncomment the `#define FLASHING` line (remove the `//` at the beginning of the line) 
@@ -57,23 +59,17 @@ Set the CR/LF setting and send test command 'AT'. The ESP should replay with OK.
 ![Serial Monitor](doc/SerMonEspAT.JPG)
 
 Next commands:
+* AT+GMR - prints the version
 * AT+CWMODE=1 sets tha STA mode
 * AT+CWJAP="ssid","pass" connects to AP
-* AT+CIUPDATE updates the firmware to the latest version
-* AT+GMR - prints the version
-* AT+UART_DEF=115200,8,1,0,0 - setting of the default baud rate
 
-### Example sketch with WiFiEsp library
+### Alternative AT firmware
 
-Install the [WiFiEsp library](https://github.com/bportaluri/WiFiEsp).
+Jiri Bilek created [an alternative AT 1.7 firmware implementation](https://github.com/JiriBilek/ESP_ATMod) over esp8266 Arduino core and WiFi library. This supports SSL TLS1.2 connection in passive mode with WiFiEspAT library.
 
-Open the WiFiEspWebClient example. Change the WiFi credentials and upload the sketch.
+### WiFiEspAT library
 
-WiFiEsp library has timeout issues. One of them causes buffer overflow with UNO WiFi Serial1. Instructions are in the example sketch.
-
-### New WiFiEspAT library
-
-With AT firmware 1.7 (SDK 3), you can use the new [WFiEspAT library](https://github.com/jandrassy/WiFiEspAT).
+With AT firmware 1.7.x (SDK 3), you can use my [WFiEspAT library](https://github.com/jandrassy/WiFiEspAT).
 
 To test it, only add `#include <UnoWiFiDevEdSerial1.h>` at the beginning of the example sketches of the WiFiEspAT library.
 
@@ -89,10 +85,6 @@ Repository and
 instructions for generic board/module with ESP8266 are [here](https://github.com/jandrassy/arduino-firmware-wifilink).
 
 The version of WiFi Link library modified for use with any serial implementation is [here](https://github.com/jandrassy/arduino-library-wifilink).
-
-An example for UNO WiFi with Serial1 is in examples of the UnoWiFiDevEdSerial1 library.
-
-For Blynk with UNO WiFi with Serial1 and WiFi Link library, see UnoWiFiBlynk example.
 
 ## Writing sketches for ESP8266
 
